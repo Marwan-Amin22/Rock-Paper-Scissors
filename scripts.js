@@ -2,14 +2,14 @@
 function numToAnswer(num) {
     if (num === 0) return "rock";
     else if (num === 1) return "paper";
-    else if (num === 2) return "scissor";
+    else if (num === 2) return "scissors";
     else return "none";
 }
 
 function answerToNum(answer) {
     if (answer === "rock") return 0;
     else if (answer === "paper") return 1;
-    else if (answer === "scissor") return 2;
+    else if (answer === "scissors") return 2;
     else return -1;
 }
 

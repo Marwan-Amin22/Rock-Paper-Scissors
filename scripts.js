@@ -63,4 +63,4 @@ function playGame() {
     console.log("Game Over");
 }
 
-playGame();
+//playGame();

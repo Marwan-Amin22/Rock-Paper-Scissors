@@ -1,0 +1,66 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    background-color: beige;
+}
+
+button{
+    font-size: 20px;
+    width: 92px;
+    height: inherit;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+ul{
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+}
+.flex-container{
+    display: flex;
+}
+.header-text{
+    text-align: center;
+    padding: 16px 0;
+}
+.score-board{
+    gap: 64px;
+    justify-content: center;
+    padding: 16px 0;
+}
+
+.player ,
+.computer{
+    text-align: center;
+    min-width: 120px;
+    max-width: 240px;
+    flex: 1;
+}
+
+.header-text-top,
+.player-score ,
+.computer-score,
+.separator{
+    font-size: 64px;
+}
+
+.header-text-bottom,
+.player-text ,
+.computer-text{
+    font-size: 32px;
+}
+
+
+.input-buttons {
+    gap:64px;
+    justify-content: center;
+    padding: 16px 0;
+}
+

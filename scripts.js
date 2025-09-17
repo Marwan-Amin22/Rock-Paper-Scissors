@@ -17,38 +17,70 @@ function getComputerChoice() {
     return Math.floor(Math.random() * 3); // 0 -> 2
 }
 
-function getHumanChoice() {
-    let str = prompt("Enter: rock - paper - scissors");
-
-    str = String(str).toLowerCase();
-    return answerToNum(str);
-
-}
-
-let humanScore = 0;
-let computerScore = 0;
+let playerScoreNum = 0;
+let computerScoreNum = 0;
+let gameReset = false ;
 
 function playRound(humanChoice, computerChoice) {
 
+    const playerScoreDisplay = document.querySelector(".player-score");
+    const computerScoreDisplay = document.querySelector(".computer-score");
+    const headerText = document.querySelector(".header-text-top");
+    const subText = document.querySelector(".header-text-bottom");
+    if(gameReset)
+    {
+        playerScoreNum = 0;
+        computerScoreNum = 0;
+        gameReset=false;
+    }
+    let outcome,yap,str1,str2;
     if (humanChoice == -1) {
         console.log("Invalid round!");
     }
     else {
         let result = (humanChoice - computerChoice + 3) % 3;
-        if (result == 0) console.log("Tie");
+        if (result == 0) {
+            console.log("Tie");
+            outcome = "Tied round";
+        }
         else if (result == 1) {
             console.log("You win");
-            humanScore++;
+            outcome = "You won this round";
+            playerScoreNum++;
         }
         else if (result == 2) {
             console.log("You lose");
-            computerScore++;
+            outcome = "You lost the round";
+            computerScoreNum++;
         }
     }
 
     console.log("You chose: " + numToAnswer(humanChoice));
     console.log("The computer chose: " + numToAnswer(computerChoice));
-    console.log("Scores: " + "You: " + humanScore + " | " + "Computer: " + computerScore);
+    console.log("Scores: " + "You: " + playerScoreNum + " | " + "Computer: " + computerScoreNum);
+
+    
+    yap="You chose: " + numToAnswer(humanChoice) +"   |   "+"The computer chose: " + numToAnswer(computerChoice);
+ 
+ 
+    
+    if(playerScoreNum === 5)
+    {
+        outcome="You Won The Game";
+        yap = "Congrats on winning" + ", To play again just press any button";
+        gameReset = true ;
+    }
+    else if(computerScoreNum ===5)
+    {
+        outcome="You Lost The Game";
+        yap = "It was all luck anyway" + ", To play again just press any button";
+        gameReset =true ;
+    }
+
+    playerScoreDisplay.textContent = playerScoreNum;
+    computerScoreDisplay.textContent = computerScoreNum;
+    headerText.textContent = outcome;
+    subText.textContent = yap;
 }
 
 
@@ -64,3 +96,15 @@ function playGame() {
 }
 
 //playGame();
+
+
+
+
+
+    const btn = document.querySelector("#buttons-list");
+    btn.addEventListener("click",(item)=>{
+
+        if(item.target.tagName === "BUTTON"){
+            playRound(answerToNum(item.target.id),getComputerChoice());
+        }
+    });

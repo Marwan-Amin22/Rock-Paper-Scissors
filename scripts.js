@@ -86,22 +86,6 @@ function playRound(humanChoice, computerChoice) {
 }
 
 
-function playGame() {
-    for (let i = 1; i <= 5; i++) {
-        console.log("Round " + i);
-        playRound(getHumanChoice(), getComputerChoice());
-        console.log('');
-    }
-
-
-    console.log("Game Over");
-}
-
-//playGame();
-
-
-
-
 
     const btn = document.querySelector("#buttons-list");
     btn.addEventListener("click",(item)=>{

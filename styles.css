@@ -59,8 +59,12 @@ ul{
 
 
 .input-buttons {
-    gap:64px;
     justify-content: center;
     padding: 16px 0;
+}
+
+#buttons-list{
+    gap: 64px;
+    justify-content: center;
 }
 

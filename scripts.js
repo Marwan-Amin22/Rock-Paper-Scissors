@@ -42,16 +42,19 @@ function playRound(humanChoice, computerChoice) {
         if (result == 0) {
             console.log("Tie");
             outcome = "Tied round";
+            headerText.style.color="gray";
         }
         else if (result == 1) {
             console.log("You win");
             outcome = "You won this round";
             playerScoreNum++;
+            headerText.style.color="green";
         }
         else if (result == 2) {
             console.log("You lose");
             outcome = "You lost the round";
             computerScoreNum++;
+            headerText.style.color="red";
         }
     }
 
@@ -63,7 +66,6 @@ function playRound(humanChoice, computerChoice) {
     yap="You chose: " + numToAnswer(humanChoice) +"   |   "+"The computer chose: " + numToAnswer(computerChoice);
  
  
-    
     if(playerScoreNum === 5)
     {
         outcome="You Won The Game";
